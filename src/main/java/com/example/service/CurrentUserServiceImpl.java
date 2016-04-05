@@ -2,7 +2,8 @@ package com.example.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Role;
+import com.example.domain.CurrentUser;
+import com.example.domain.Role;
 
 @Service
 public class CurrentUserServiceImpl implements CurrentUserService {

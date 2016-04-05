@@ -1,9 +1,12 @@
 package com.example.service;
 
+
+
 import java.util.Collection;
 import java.util.Optional;
 
-import com.example.entity.User;
+import com.example.domain.User;
+import com.example.domain.UserCreateForm;
 
 public interface UserService {
 
@@ -13,5 +16,6 @@ public interface UserService {
 
     Collection<User> getAllUsers();
 
+    User create(UserCreateForm form);
 
 }

@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.example.web.HelloController;
+import com.example.web.HomeController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
@@ -26,7 +26,7 @@ public class HelloControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new HomeController()).build();
 	}
 
 	@Test

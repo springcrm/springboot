@@ -1,34 +1,20 @@
 package com.example;
 
-import java.util.Arrays;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-@EnableTransactionManagement
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+
 @SpringBootApplication
-public class Application {
-	 @Bean
-	    public Object testBean(PlatformTransactionManager platformTransactionManager) {
-	        System.out.println(">>>>>>>>>>" + platformTransactionManager.getClass().getName());
-	        return new Object();
-	    }
-	 
-	public static void main(String[] args) {
-		 ApplicationContext ctx = SpringApplication.run(Application.class, args);
+public class Application extends SpringBootServletInitializer {
 
-	        System.out.println("Let's inspect the beans provided by Spring Boot:");
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	        String[] beanNames = ctx.getBeanDefinitionNames();
-	        Arrays.sort(beanNames);
-	        for (String beanName : beanNames) {
-	            System.out.println(beanName);
-	        }
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
 }

@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
-import com.example.entity.Book;
+import com.example.domain.Book;
 import com.example.repository.BookRepository;
 
 public class StartupRunner implements CommandLineRunner {
