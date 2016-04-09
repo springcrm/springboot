@@ -1,12 +1,17 @@
 package com.example;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
 
 	public static void main(String args[]){
         SpringApplication.run(Application.class, args);
@@ -16,5 +21,16 @@ public class Application extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
     }
+
+	@Override
+	public void customize(ConfigurableEmbeddedServletContainer container) {
+		// TODO Auto-generated method stub
+		try {
+			container.setPort(new ServerSocket(0).getLocalPort());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
