@@ -24,13 +24,7 @@ public class Application extends SpringBootServletInitializer implements Embedde
 
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
-		// TODO Auto-generated method stub
-		try {
-			container.setPort(new ServerSocket(0).getLocalPort());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		container.setPort(8080);
 	}
 
 }
